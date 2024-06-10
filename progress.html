@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Progress</title>
+    <link rel="stylesheet" href="styles/buttons.css">
+</head>
+<body>
+    <div class="container">
+        <h1>View Progress</h1>
+        <form action="/progress" method="POST">
+            <label for="days">Enter the number of days to view progress for:</label>
+            <input type="number" id="days" name="days" required>
+            <button type="submit">View Progress</button>
+        </form>
+        <a href="file:///C:/Users/Ashanti.Wood/Documents/MyCodingProjects/Habit_Tracker/Habit_Tracker.html">Back to Home</a>
+
+        {% if progress_data %}
+        <div class="progress-report">
+            <h2>Progress over the last {{ progress_data.days }} days</h2>
+            <p>Reading: {{ progress_data.reading }} mins/day</p>
+            <p>Workout: {{ progress_data.workout }} mins/day</p>
+            <p>Meditation: {{ progress_data.meditation }} mins/day</p>
+            <p>Studying: {{ progress_data.studying }} mins/day</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
